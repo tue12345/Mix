@@ -755,36 +755,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void Adsreward(int n)
-    {
-        //AdvertisementManager.Instance.isAdClicked = true;
-        if (Application.internetReachability == NetworkReachability.NotReachable)
-        {
-            NointernetPanel.SetActive(true);
-        }
-        else
-        {
-            Action Succes = () =>
-            {
-                PlayerData.current.adsReward.Add(n);
-                Model.Instance.Save();
-                Debug.Log("ads");
-                //AdvertisementManager.Instance.isAdClicked = false;
-                
-
-                //
-            };
-            Action Fail = () =>
-            {
-                Debug.Log("fail");
-                
-                return;
-                //
-            };
-            
-
-        }
-    }
+    
 
     public void WallPaper()
     {
@@ -794,38 +765,7 @@ public class GameManager : MonoBehaviour
                 BG[i].SetActive(false);
             }
             BG[UnityEngine.Random.Range(0, 7)].SetActive(true);
-        /*if (PlayerPrefs.GetInt("NoAds") == 1)
-        {
-        }
-        else
-        {
-            if (Application.internetReachability == NetworkReachability.NotReachable)
-            {
-                NointernetPanel.SetActive(true);
-            }
-            else
-            {
-
-
-                Action Succes = () =>
-                {
-                    TrackingClass.AdsTracking("ads_reward", "end_game", "succes", "change_BG");
-                    for (int i = 0; i < BG.Length; i++)
-                    {
-                        BG[i].SetActive(false);
-                    }
-                    BG[UnityEngine.Random.Range(0, 7)].SetActive(true);
-                };
-                Action Fail = () =>
-                {
-                    TrackingClass.AdsTracking("ads_reward", "end_game", "fail", "change_BG");
-                    Debug.Log("fail");
-                    return;
-                };
-                AdvertisementManager.Instance.ShowRewardedVideo(Succes, Fail);
-            }
-
-        }*/
+        
     }
 
     public void OpenRemoveAdsPanel()
