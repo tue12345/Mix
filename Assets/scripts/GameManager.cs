@@ -86,6 +86,11 @@ public class GameManager : MonoBehaviour
         {
             TutorialPanel.SetActive(false);
         }
+        foreach(int daily in PlayerData.current.daily)
+        {
+            lockdaily[daily].gameObject.SetActive(false);
+            Daily[daily].GetComponent<Button>().interactable = true;
+        }
         videoWin.SetActive(false);
         bodyskeleton.SetActive(false);
         //bodyAni.skeleton.SetSkin("default");
@@ -129,13 +134,14 @@ public class GameManager : MonoBehaviour
         if (PlayerPrefs.GetInt("CanPlayMusic") == 0)// 0 = music/sound off , 1 = music/sound on
         {
             source1.volume = 0;
+            source4.volume = 0;
             _Music.SetBool("IsOn", false);
 
         }
         else if (PlayerPrefs.GetInt("CanPlayMusic") == 1)
         {
             source1.volume = 0.7f;
-
+            source4.volume = 0.7f;
             _Music.SetBool("IsOn", true);
         }
 
